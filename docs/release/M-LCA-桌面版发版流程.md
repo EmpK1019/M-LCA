@@ -166,10 +166,11 @@ git push origin main
 ```powershell
 robocopy "D:\1.AI-agent-file\2.LCA_modeler_Project\M-LCA\M-LCA_dev" `
          "D:\1.AI-agent-file\2.LCA_modeler_Project\M-LCA\M-LCA_dev_<版本号>" `
-         /E /XD "venv" "__pycache__" "node_modules" /XF "*.pyc" /NP /NFL /NDL /R:1 /W:1
+         /E /XD "venv" "__pycache__" "node_modules" ".git" /XF "*.pyc" /NP /NFL /NDL /R:1 /W:1
 ```
 
 > 注意：robocopy 退出码 1 表示"有文件被复制"，是正常成功状态，不是错误。
+> `.git` 必须排除，否则备份目录会携带完整 git 仓库，误操作时可能污染历史。
 
 ---
 

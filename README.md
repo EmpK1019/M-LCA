@@ -19,7 +19,7 @@ M-LCA 是一款面向 LCA 从业者的桌面建模助手。通过对话驱动建
 | 平台 | 文件 |
 |------|------|
 | Windows (x64) | `M-LCA-Setup-<版本号>.exe` |
-| macOS (Apple Silicon) | `M-LCA-Installer-<版本号>-<arch>.dmg` |
+| macOS (Apple Silicon / Intel) | `M-LCA-Installer-<版本号>-<arch>.dmg` |
 
 前往 [Releases](https://github.com/EmpK1019/M-LCA_dev/releases) 下载最新版本。
 
