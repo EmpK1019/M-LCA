@@ -67,6 +67,8 @@ npm run version:release
 
 **这个文件会被 CI 直接读取作为 GitHub Release 的页面正文，也是 README 版本历史的来源，写好它等于同时更新了两个地方。**
 
+**写"更新内容"部分前，先查阅 `docs/release/CHANGELOG-<版本号>-dev.md`**（例如发 `0.8.4` 时查 `CHANGELOG-0.8.4-dev.md`）。该文件记录了本开发周期内所有修复和新功能，以它为基础提炼发版说明的更新列表，不要遗漏。
+
 #### 固定结构
 
 ```markdown
