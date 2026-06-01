@@ -106,6 +106,8 @@ M-LCA_dev/
 
 ## 开发环境
 
+Python 引擎固定使用 **Python 3.11.x**；依赖优先从 `engine/requirements.lock.txt` 安装，避免本地 3.13 或未锁定依赖导致测试和打包漂移。
+
 ```bash
 # 在 desktop/ 目录下
 node scripts/dev.mjs
