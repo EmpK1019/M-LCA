@@ -169,19 +169,6 @@ git commit -m "chore: bump to <下一版本>-dev"
 git push origin main
 ```
 
-### 8. 本地备份
-
-用 robocopy 将当前开发目录备份为 `M-LCA_dev_<版本号>`：
-
-```powershell
-robocopy "D:\1.AI-agent-file\2.LCA_modeler_Project\M-LCA\M-LCA_dev" `
-         "D:\1.AI-agent-file\2.LCA_modeler_Project\M-LCA\M-LCA_dev_<版本号>" `
-         /E /XD "venv" "__pycache__" "node_modules" ".git" /XF "*.pyc" /NP /NFL /NDL /R:1 /W:1
-```
-
-> 注意：robocopy 退出码 1 表示"有文件被复制"，是正常成功状态，不是错误。
-> `.git` 必须排除，否则备份目录会携带完整 git 仓库，误操作时可能污染历史。
-
 ---
 
 ## 默认执行顺序
@@ -193,4 +180,3 @@ robocopy "D:\1.AI-agent-file\2.LCA_modeler_Project\M-LCA\M-LCA_dev" `
 5. 触发 GitHub Actions `desktop-release` workflow（传入版本号）
 6. 等待 CI 完成，确认 GitHub Release 已创建并包含安装包
 7. 手动修改版本号为下一 `-dev`，`git commit` + `git push`
-8. robocopy 备份 `M-LCA_dev` 为 `M-LCA_dev_<版本号>`
