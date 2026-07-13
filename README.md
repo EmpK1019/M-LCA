@@ -21,7 +21,7 @@ M-LCA 是一款面向 LCA 从业者的桌面建模助手。通过对话驱动建
 | Windows (x64) | `M-LCA-Setup-<版本号>.exe` |
 | macOS (Apple Silicon / Intel) | `M-LCA-Installer-<版本号>-<arch>.dmg` |
 
-前往 [Releases](https://github.com/EmpK1019/M-LCA_dev/releases) 下载最新版本。
+前往 [Releases](https://github.com/EmpK1019/M-LCA/releases) 下载最新版本。
 
 > macOS：右键 → 打开（首次运行需绕过 Gatekeeper）  
 > Windows：SmartScreen 提示时选择"仍要运行"
@@ -121,12 +121,13 @@ node scripts/dev.mjs
 
 | 版本 | 类型 | 重点 |
 |------|------|------|
+| **0.15.0** | minor | Cowork 运行恢复、真实协作与 Coding 闭环；逐调用审批/写入保护；正文、工具、文件按真实时间线交付 |
 | **0.8.1** | patch | 模型库查询优化：唯一命中直接返回完整数据，禁止猜测 UUID；lca-base 新增模型库展示交互模式；流程图强制 Mermaid 格式 |
 | **0.8.0** | minor | 思考过程显示重构（ThinkingPanel）；PPTX 视觉审计强制化；工具步骤富信息展示（图标、耗时、进度徽章）；动效系统 |
 | **0.7.0** | minor | 权限管线系统；Hook 服务；Skill 两阶段加载；MCP 桥接；Token 流式推送 |
 | **0.6.0** | minor | 双平台发版架构；聊天附件持久化；PPTX deck spec 宽松解析 |
 
-完整发版说明见 [Releases](https://github.com/EmpK1019/M-LCA_dev/releases)。
+完整发版说明见 [Releases](https://github.com/EmpK1019/M-LCA/releases)。
 
 ---
 

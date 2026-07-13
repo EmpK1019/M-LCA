@@ -74,8 +74,8 @@ npm run version:release
 ```markdown
 ⬇ 下载 / Download
 
-点对应系统的链接下载。页面上其它文件是 GitHub 自动生成的源码包，不用管。
-Click your system's link to download. Other files on this page are auto-generated source archives — ignore them.
+点对应系统的链接下载。页面上的 `.yml`、`.zip` 与 `.blockmap` 是应用自动更新所需文件；GitHub 另行显示的 Source code (zip/tar.gz) 才是源码归档。
+Click your system's link to download. The `.yml`, `.zip`, and `.blockmap` files support in-app updates; GitHub's separately listed Source code (zip/tar.gz) entries are source archives.
 
 | 系统 System | 下载 Download |
 |---|---|
@@ -144,11 +144,17 @@ curl -s -X POST \
 
 ### 6. 等待 CI 完成，确认 Release 创建
 
-CI 完成后会自动：
+CI 会先在公开仓库创建同版本的草稿 Release；两个平台完成本地构建和完整产物校验后，分别将各自文件直接上传到该草稿，最后严格核对资产清单并发布。这个过程不再把安装包暂存为私有仓库的 GitHub Actions artifact。
 
-- 创建 GitHub Release（tag: `v<版本号>`）
-- 上传 Windows 安装包（`M-LCA-Setup-<版本号>.exe`）
-- 上传 macOS DMG（`M-LCA-Installer-<版本号>-<arch>.dmg`）
+CI 完成后公开 Release 会包含以下 8 个资产：
+
+| 用途 | 资产 |
+|---|---|
+| 手动下载安装 | `M-LCA-Setup-<版本号>.exe`、`M-LCA-Installer-<版本号>-arm64.dmg` |
+| Windows 自动更新 | `latest.yml`、`M-LCA-Setup-<版本号>.exe.blockmap` |
+| macOS 自动更新 | `latest-mac.yml`、`M-LCA-Installer-<版本号>-arm64.zip`、对应的 `.dmg.blockmap` 和 `.zip.blockmap` |
+
+发版说明的下载表只链接 EXE 和 DMG；其余 6 个文件由应用内自动更新使用，用户无需手动下载。它们是安装包校验、版本描述或更新包，不是项目源代码。
 
 可通过 API 轮询确认：
 
