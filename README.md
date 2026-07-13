@@ -19,7 +19,7 @@ M-LCA 是一款面向 LCA 从业者的桌面建模助手。通过对话驱动建
 | 平台 | 文件 |
 |------|------|
 | Windows (x64) | `M-LCA-Setup-<版本号>.exe` |
-| macOS (Apple Silicon / Intel) | `M-LCA-Installer-<版本号>-<arch>.dmg` |
+| macOS (Apple Silicon) | `M-LCA-Installer-<版本号>-arm64.dmg` |
 
 前往 [Releases](https://github.com/EmpK1019/M-LCA/releases) 下载最新版本。
 
@@ -121,6 +121,7 @@ node scripts/dev.mjs
 
 | 版本 | 类型 | 重点 |
 |------|------|------|
+| **0.15.1** | patch | Cowork 准备阶段默认折叠；保留执行、工具、答复与文件的真实顺序，并支持按需展开审计记录 |
 | **0.15.0** | minor | Cowork 运行恢复、真实协作与 Coding 闭环；逐调用审批/写入保护；正文、工具、文件按真实时间线交付 |
 | **0.8.1** | patch | 模型库查询优化：唯一命中直接返回完整数据，禁止猜测 UUID；lca-base 新增模型库展示交互模式；流程图强制 Mermaid 格式 |
 | **0.8.0** | minor | 思考过程显示重构（ThinkingPanel）；PPTX 视觉审计强制化；工具步骤富信息展示（图标、耗时、进度徽章）；动效系统 |
