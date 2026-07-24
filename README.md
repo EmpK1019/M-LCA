@@ -121,6 +121,7 @@ node scripts/dev.mjs
 
 | 版本 | 类型 | 重点 |
 |------|------|------|
+| **0.15.2** | patch | 自动更新 Latest 指针防回归；Windows/macOS 原生窗口栏适配；模式与主页入口移至侧栏并保持独立对齐 |
 | **0.15.1** | patch | Cowork 准备阶段默认折叠；保留执行、工具、答复与文件的真实顺序，并支持按需展开审计记录 |
 | **0.15.0** | minor | Cowork 运行恢复、真实协作与 Coding 闭环；逐调用审批/写入保护；正文、工具、文件按真实时间线交付 |
 | **0.8.1** | patch | 模型库查询优化：唯一命中直接返回完整数据，禁止猜测 UUID；lca-base 新增模型库展示交互模式；流程图强制 Mermaid 格式 |
@@ -136,7 +137,7 @@ node scripts/dev.mjs
 
 发版流程见 [`docs/release/M-LCA-桌面版发版流程.md`](docs/release/M-LCA-桌面版发版流程.md)。
 
-CI 打包通过 GitHub Actions `desktop-release` workflow 触发（`workflow_dispatch`，手动传入版本号），产出 Windows 安装包与 macOS DMG。
+CI 打包通过 GitHub Actions `desktop-release` workflow 触发；正式版本优先推送 `v*.*.*` 标签自动执行，`workflow_dispatch` 作为手动补救入口，产出 Windows 安装包与 macOS DMG。
 
 ---
 

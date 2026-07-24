@@ -144,7 +144,7 @@ curl -s -X POST \
 
 ### 6. 等待 CI 完成，确认 Release 创建
 
-CI 会先在公开仓库创建同版本的草稿 Release；两个平台完成本地构建和完整产物校验后，分别将各自文件直接上传到该草稿，最后严格核对资产清单并发布。这个过程不再把安装包暂存为私有仓库的 GitHub Actions artifact。
+CI 会先在公开仓库创建同版本的草稿 Release；两个平台完成本地构建和完整产物校验后，分别将各自文件直接上传到该草稿，最后严格核对资产清单、发布并显式设为 GitHub Latest。这个过程不再把安装包暂存为私有仓库的 GitHub Actions artifact。
 
 CI 完成后公开 Release 会包含以下 8 个资产：
 
@@ -154,7 +154,7 @@ CI 完成后公开 Release 会包含以下 8 个资产：
 | Windows 自动更新 | `latest.yml`、`M-LCA-Setup-<版本号>.exe.blockmap` |
 | macOS 自动更新 | `latest-mac.yml`、`M-LCA-Installer-<版本号>-arm64.zip`、对应的 `.dmg.blockmap` 和 `.zip.blockmap` |
 
-发版说明的下载表只链接 EXE 和 DMG；其余 6 个文件由应用内自动更新使用，用户无需手动下载。它们是安装包校验、版本描述或更新包，不是项目源代码。
+发版说明的下载表只链接 EXE 和 DMG；其余 6 个文件由应用内自动更新使用，用户无需手动下载。它们是安装包校验、版本描述或更新包，不是项目源代码。稳定版的 `electron-updater` 会读取 GitHub 的 `/releases/latest` 入口，所以发布完成后还必须确认该入口返回当前版本的 `latest.yml`；只有资产上传成功但未成为 Latest 仍会让旧客户端误判为“已是最新”。
 
 可通过 API 轮询确认：
 
