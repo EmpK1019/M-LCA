@@ -44,6 +44,23 @@
 
 ---
 
+## 发布内容边界（engine_data 白名单）
+
+`engine_data/` 目录中仅以下两个文件进入 git 跟踪并随引擎包发布：
+
+- `material_list_global.json`
+- `model_library_global.json`
+
+目录内其余内容（`memories/`、`schedules.json`、`outputs/`、`message_attachments/`、`sessions/`、`skills/`、`runtime-instructions/`、`projects.json`、`mcp/`、`*_runtime-state.json`、`_cowork_entry.txt`、`_planning_debug.txt` 等）均为用户运行时数据、本地路径或测试产物，**禁止**加入 git 跟踪，也**禁止**进入引擎二进制与安装包。
+
+强制约束：
+
+- `.gitignore` 已整体忽略 `engine_data/`，新增文件默认不会入库。
+- 除非经评审确认属于建模基础数据，否则不得使用 `git add -f` 强制加入 `engine_data`。
+- 发版前执行 `git ls-files engine_data`，确认结果**仅**包含上述两个文件。
+
+---
+
 ## 标准发版步骤
 
 ### 1. 确定发版号
